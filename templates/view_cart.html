@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cart</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="body">
+    <div class="container">
+        <h1 class="heading">Shopping Cart</h1>
+    
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item[0] }}</td>
+                        <td>{{ item[1] }}</td>
+                        <td>{{ item[2] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+        <div style="text-align: center;" class="cart-links">
+            <a href="{{ url_for('checkout') }}" class="button">Checkout</a>
+            <a href="{{ url_for('show_menu') }}" class="button">Back to Menu</a>
+        </div>
+    </div>
+</body>
+</html>

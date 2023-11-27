@@ -1,0 +1,34 @@
+<!-- bill.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Order Bill</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Order Summary</h1>
+
+        <div>
+            <p><strong>User Name:</strong> {{ user_name }}</p>
+            <p><strong>Address:</strong> {{ address }}</p>
+            <p><strong>Phone Number:</strong> {{ phone_number }}</p>
+        </div>
+
+        <h2>Items Ordered:</h2>
+        <ul>
+            {% for item in cart_items %}
+                <li>{{ item[0] }} - Quantity: {{ item[1] }} - Price: ${{ item[2] }}
+            {% endfor %}
+        </ul>
+
+        <h3>Total Amount: ${{ total_amount }}</h3>
+
+        <div class="center">
+            <a href="{{ url_for('show_menu') }}" class="button">Back to Menu</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* Reset default browser styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center; /* Center text */
+}
+
+/* Center all content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Form styles */
+.add-product-heading {
+    text-align: center;
+}
+
+.add-product-form {
+    max-width: 300px;
+    margin: 20px auto;
+    text-align: left; /* Align form content to the left within the centered container */
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.form-submit-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Logout button styles */
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+/* Table styles */
+table {
+    width: 80%; /* Adjust table width as needed */
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #006400; /* Dark green border color */
+    padding: 12px;
+    text-align: left;
+}
+
+
+td {
+    background-color: #f9f9f9;
+}
+
+/* Transaction history styles */
+h2 {
+
+    text-align: center;
+}

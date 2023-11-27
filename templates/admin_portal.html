@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Admin Portal</title>
+</head>
+<body>
+    <!-- Add Product Form -->
+    <h2 class="add-product-heading">Add Medicine</h2>
+    <form class="add-product-form" method="post" action="{{ url_for('add_product') }}">
+        <label for="name" class="form-label">Product Name:</label>
+        <input type="text" name="name" class="form-input" required><br>
+            
+        <label for="price" class="form-label">Price:</label>
+        <input type="number" name="price" class="form-input" step="0.01" required><br>
+    
+        <input type="submit" value="Add Product" class="form-submit-button">
+    </form>
+
+    <!-- Logout Button at the top right -->
+    <div style="position: absolute; top: 10px; right: 10px;">
+        <a class="button" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <!-- Display Menu with Delete option and Category -->
+    <h2>Menu</h2>
+    <table >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price (Rs.)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your Jinja template code remains unchanged -->
+            {% for item in menu_items %}
+                <tr>
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }}</td>
+                    <td>Rs.{{ item[2] }}</td>
+                    <td>
+                        <form method="post" onsubmit="return confirm('Are you sure you want to delete this product?');" action="{{ url_for('delete_product', item_id=item[0]) }}">
+                            <input type="hidden" name="item_id" value="{{ item[0] }}">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <div>
+        <h2>Transaction History</h2>
+        <table >
+            <tr>
+                <th>Transaction ID</th>
+                <th>User Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Menu Item</th>
+                <th>Quantity</th>
+                <th>Total Amount</th>
+            </tr>
+            {% for transaction in transaction_history %}
+                <tr>
+                    <td>{{ transaction[0] }}</td>
+                    <td>{{ transaction[1] }}</td>
+                    <td>{{ transaction[2] }}</td>
+                    <td>{{ transaction[3] }}</td>
+                    <td>{{ transaction[4] }}</td>
+                    <td>{{ transaction[5] }}</td>
+                    <td>{{ transaction[6] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+
+  
+
+    <!-- Other admin-specific content -->
+
+</body>
+</html>
